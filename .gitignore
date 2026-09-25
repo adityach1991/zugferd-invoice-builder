@@ -22,6 +22,9 @@ obj/
 # Test coverage
 coverage/
 
+# Local dev database (embedded-postgres data directory)
+.dev-db/
+
 # POC validator tooling (large binaries, re-downloadable - see poc/zugferd-csharp/README.md)
 poc/zugferd-csharp/tools/
 

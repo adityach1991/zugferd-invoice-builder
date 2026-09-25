@@ -1,0 +1,97 @@
+// Foundational schema for Milestone 0/1 only.
+// Deliberately excludes: subscriptions, quotas, billing, AI extractions,
+// customers, audit logs (later milestones, ARCHITECTURE.md section 18).
+// Uses an Organization concept from the start (ADR-028).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id        String               @id @default(cuid())
+  name      String
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+  members   OrganizationMember[]
+  invoices  Invoice[]
+}
+
+model User {
+  id          String               @id @default(cuid())
+  email       String               @unique
+  name        String?
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  memberships OrganizationMember[]
+  invoices    Invoice[]
+}
+
+enum OrgRole {
+  OWNER
+  MEMBER
+}
+
+model OrganizationMember {
+  organizationId String
+  userId         String
+  role           OrgRole      @default(OWNER)
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([organizationId, userId])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  FINALIZED
+}
+
+model Invoice {
+  id             String        @id @default(cuid())
+  organizationId String
+  createdById    String?
+  number         String
+  issueDate      DateTime      @db.Date
+  dueDate        DateTime      @db.Date
+  currency       String        @db.Char(3)
+  status         InvoiceStatus @default(DRAFT)
+  // Canonical invoice DTO (validated by src/schemas/invoice.ts before write).
+  payload        Json
+  // Compliance generation metadata; set once at finalization and never
+  // silently rewritten (ADR-004, ADR-032).
+  zugferdProfile String?
+  engineVersion  String?
+  generatedAt    DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  organization   Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdBy      User?         @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  files          InvoiceFile[]
+
+  @@index([organizationId, createdAt])
+}
+
+enum FileKind {
+  SOURCE_XML
+  HYBRID_PDF
+  EXTRACTED_XML
+  VALIDATION_REPORT
+}
+
+model InvoiceFile {
+  id         String   @id @default(cuid())
+  invoiceId  String
+  kind       FileKind
+  storageKey String
+  sha256     String   @db.Char(64)
+  sizeBytes  Int
+  createdAt  DateTime @default(now())
+  invoice    Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+}
