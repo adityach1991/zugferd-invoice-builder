@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ZugferdWorker</RootNamespace>
+    <AssemblyName>ZugferdWorker</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Pinned to the versions validated by the POC (see poc/zugferd-csharp). -->
+    <PackageReference Include="Balsoft.Hive.EInvoice" Version="1.0.0" />
+    <PackageReference Include="Balsoft.Hive.EInvoice.Pdf" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
