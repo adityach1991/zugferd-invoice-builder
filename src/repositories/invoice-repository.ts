@@ -97,6 +97,7 @@ export class InvoiceRepository {
 
     // Update payload if any invoice data changed
     if (
+      input.number !== undefined ||
       input.seller !== undefined ||
       input.buyer !== undefined ||
       input.payment !== undefined ||
@@ -107,6 +108,7 @@ export class InvoiceRepository {
         const existingPayload = existing.payload as any;
         updateData.payload = {
           ...existingPayload,
+          ...(input.number !== undefined && { number: input.number }),
           ...(input.seller !== undefined && { seller: input.seller }),
           ...(input.buyer !== undefined && { buyer: input.buyer }),
           ...(input.payment !== undefined && { payment: input.payment }),
