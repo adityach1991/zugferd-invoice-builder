@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# .NET
+bin/
+obj/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Test coverage
+coverage/
+
+# POC validator tooling (large binaries, re-downloadable - see poc/zugferd-csharp/README.md)
+poc/zugferd-csharp/tools/
+
+# OS
+.DS_Store

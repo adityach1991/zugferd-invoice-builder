@@ -1,0 +1,73 @@
+16:45:17.863 [main] INFO  c.h.s.x.SchematronResourceXSLTCache - Compiling XSLT instance [cpPath=/xslt/ZF_221/FACTUR-X_BASIC.xslt; urlResolved=true; URL=jar:file:/Users/aditya/Downloads/zugferd-saas/poc/zugferd-csharp/tools/Mustang-CLI-2.9.0.jar!/xslt/ZF_221/FACTUR-X_BASIC.xslt]
+16:45:19.384 [main] INFO  c.h.s.x.SchematronResourceXSLTCache - Compiling XSLT instance [cpPath=/xslt/cii16931schematron/EN16931-CII-validation.xslt; urlResolved=true; URL=jar:file:/Users/aditya/Downloads/zugferd-saas/poc/zugferd-csharp/tools/Mustang-CLI-2.9.0.jar!/xslt/cii16931schematron/EN16931-CII-validation.xslt]
+16:45:19.596 [main] INFO  c.h.s.x.SchematronResourceXSLTCache - Compiling XSLT instance [cpPath=/xslt/XR_30/XRechnung-CII-validation.xslt; urlResolved=true; URL=jar:file:/Users/aditya/Downloads/zugferd-saas/poc/zugferd-csharp/tools/Mustang-CLI-2.9.0.jar!/xslt/XR_30/XRechnung-CII-validation.xslt]
+16:45:19.662 [main] WARN  c.h.x.t.LoggingTransformErrorListener - [warn] Transformation warning (net.sf.saxon.trans.XPathException: A function that computes atomic values should use xsl:sequence rather than xsl:value-of)
+16:45:19.663 [main] WARN  c.h.x.t.LoggingTransformErrorListener - [warn] Transformation warning (net.sf.saxon.trans.XPathException: A function that computes atomic values should use xsl:sequence rather than xsl:value-of)
+16:45:19.683 [main] INFO  o.m.validator.XMLValidator - FailedAssert 
+16:45:19.695 [main] INFO  o.m.validator.ZUGFeRDValidator - Notice 27: Seller electronic address MUST be provided [ID PEPPOL-EN16931-R020] from /xslt/XR_30/XRechnung-CII-validation.xslt)
+16:45:19.695 [main] INFO  o.m.validator.XMLValidator - FailedAssert 
+16:45:19.695 [main] INFO  o.m.validator.ZUGFeRDValidator - Notice 27: Buyer electronic address MUST be provided [ID PEPPOL-EN16931-R010] from /xslt/XR_30/XRechnung-CII-validation.xslt)
+16:45:19.695 [main] INFO  o.m.validator.XMLValidator - FailedAssert 
+16:45:19.695 [main] INFO  o.m.validator.ZUGFeRDValidator - Notice 27: [BR-DE-15] Das Element "Buyer reference" (BT-10) muss übermittelt werden. [ID BR-DE-15] from /xslt/XR_30/XRechnung-CII-validation.xslt)
+16:45:19.695 [main] INFO  o.m.validator.XMLValidator - FailedAssert 
+16:45:19.695 [main] INFO  o.m.validator.ZUGFeRDValidator - Notice 27: [BR-DE-21] Das Element "Specification identifier" (BT-24) soll syntaktisch der Kennung des Standards XRechnung entsprechen. [ID BR-DE-21] from /xslt/XR_30/XRechnung-CII-validation.xslt)
+16:45:19.695 [main] INFO  o.m.validator.XMLValidator - FailedAssert 
+16:45:19.695 [main] INFO  o.m.validator.ZUGFeRDValidator - Notice 27: [BR-DE-2] Die Gruppe "SELLER CONTACT" (BG-6) muss übermittelt werden. [ID BR-DE-2] from /xslt/XR_30/XRechnung-CII-validation.xslt)
+16:45:19.701 [main] INFO  o.m.validator.ZUGFeRDValidator - Parsed PDF:valid XML:valid Signature:null Checksum:E0C8FAF412E6BAF34D2FF1EE1C598E4B99E49DFE Profile:urn:cen.eu:en16931:2017#compliant#urn:factur-x.eu:1p0:basic Version:2 Took:2350ms Errors:[27,27,27,27,27] 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validation filename="invoice-facturx-basic.pdf" datetime="2026-09-25 16:45:17">
+  <pdf> 
+    <report> 
+      <buildInformation> 
+        <releaseDetails id="core" version="1.22.2" buildDate="2022-09-14T13:46:00+05:30"/>  
+        <releaseDetails id="validation-model" version="1.22.2" buildDate="2022-09-14T13:47:00+05:30"/> 
+      </buildInformation>  
+      <jobs> 
+        <job> 
+          <item size="12910"> 
+            <name>/Users/aditya/Downloads/zugferd-saas/poc/zugferd-csharp/ZugferdGenerator/output/invoice-facturx-basic.pdf</name> 
+          </item>  
+          <validationReport profileName="PDF/A-3B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true"> 
+            <details passedRules="124" failedRules="0" passedChecks="361" failedChecks="0"/> 
+          </validationReport>  
+          <duration start="1790334917448" finish="1790334917718">00:00:00.270</duration> 
+        </job> 
+      </jobs>  
+      <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0"> 
+        <validationReports compliant="1" nonCompliant="0" failedJobs="0">1</validationReports>  
+        <featureReports failedJobs="0">0</featureReports>  
+        <repairReports failedJobs="0">0</repairReports>  
+        <duration start="1790334917388" finish="1790334917728">00:00:00.340</duration> 
+      </batchSummary> 
+    </report>  
+    <info>
+      <signature>unknown</signature>
+      <duration unit="ms">422</duration>
+    </info>
+    <summary status="valid"/>
+  </pdf>  
+  <xml>
+    <info>
+      <version>2</version>
+      <profile>urn:cen.eu:en16931:2017#compliant#urn:factur-x.eu:1p0:basic</profile>
+      <validator version="2.9.0"/>
+      <rules>
+        <fired>13</fired>
+        <failed>5</failed>
+      </rules>
+      <duration unit="ms">1887</duration>
+    </info>
+    <messages>
+      <notice type="27" location="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]" criterion="ram:URIUniversalCommunication/ram:URIID">Seller electronic address MUST be provided [ID PEPPOL-EN16931-R020] from /xslt/XR_30/XRechnung-CII-validation.xslt)</notice>  
+      <notice type="27" location="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:BuyerTradeParty[1]" criterion="ram:URIUniversalCommunication/ram:URIID">Buyer electronic address MUST be provided [ID PEPPOL-EN16931-R010] from /xslt/XR_30/XRechnung-CII-validation.xslt)</notice>  
+      <notice type="27" location="/rsm:CrossIndustryInvoice" criterion="rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerReference[boolean(normalize-space(.))]">[BR-DE-15] Das Element "Buyer reference" (BT-10) muss übermittelt werden. [ID BR-DE-15] from /xslt/XR_30/XRechnung-CII-validation.xslt)</notice>  
+      <notice type="27" location="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext[1]" criterion="ram:GuidelineSpecifiedDocumentContextParameter/ram:ID = $XR-CIUS-ID or ram:GuidelineSpecifiedDocumentContextParameter/ram:ID = $XR-EXTENSION-ID">[BR-DE-21] Das Element "Specification identifier" (BT-24) soll syntaktisch der Kennung des Standards XRechnung entsprechen. [ID BR-DE-21] from /xslt/XR_30/XRechnung-CII-validation.xslt)</notice>  
+      <notice type="27" location="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction[1]/ram:ApplicableHeaderTradeAgreement[1]/ram:SellerTradeParty[1]" criterion="ram:DefinedTradeContact">[BR-DE-2] Die Gruppe "SELLER CONTACT" (BG-6) muss übermittelt werden. [ID BR-DE-2] from /xslt/XR_30/XRechnung-CII-validation.xslt)</notice> 
+    </messages>
+    <summary status="valid"/>
+  </xml>
+  <messages></messages>
+  <summary status="valid"/>
+</validation>
+

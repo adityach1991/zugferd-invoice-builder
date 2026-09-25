@@ -1,0 +1,56 @@
+{
+  "id": "poc-fixture-0001",
+  "number": "INV-2026-0001",
+  "issueDate": "2026-09-25",
+  "dueDate": "2026-10-25",
+  "currency": "EUR",
+  "seller": {
+    "name": "Muster GmbH",
+    "vatId": "DE123456789",
+    "address": {
+      "line1": "Mustergasse 1",
+      "postalCode": "10101",
+      "city": "Berlin",
+      "country": "DE"
+    },
+    "contact": {
+      "name": "Muster GmbH",
+      "email": "info@muster.de",
+      "phone": "+49 30 123456"
+    }
+  },
+  "buyer": {
+    "name": "Kunden AG",
+    "vatId": "DE987654321",
+    "address": {
+      "line1": "Kundenstraße 5",
+      "postalCode": "20095",
+      "city": "Hamburg",
+      "country": "DE"
+    },
+    "contact": {
+      "name": "Kunden AG",
+      "email": "info@kunden.de",
+      "phone": "+49 40 654321"
+    }
+  },
+  "payment": {
+    "means": "SEPA_CREDIT_TRANSFER",
+    "iban": "DE89 3704 0044 0532 0130 00",
+    "terms": "Net 30 days"
+  },
+  "lines": [
+    {
+      "description": "Web Development Services",
+      "quantity": 10,
+      "unit": "HUR",
+      "unitPriceMinor": 8500,
+      "vatRatePercent": 19
+    }
+  ],
+  "totals": {
+    "netMinor": 85000,
+    "vatMinor": 16150,
+    "grossMinor": 101150
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "fixture": "poc-facturx-basic",
+  "description": "Reference outputs of the passing ZUGFeRD technology POC (Factur-X BASIC). Generated 2026-09-25. This is the project's first compliance regression fixture.",
+  "profile": "FacturXBasic",
+  "specificationIdentifier": "urn:cen.eu:en16931:2017#compliant#urn:factur-x.eu:1p0:basic",
+  "generator": {
+    "dotnetSdk": "8.0.121",
+    "packages": {
+      "Balsoft.Hive.EInvoice": "1.0.0",
+      "Balsoft.Hive.EInvoice.Pdf": "1.0.0",
+      "PDFsharp": "6.2.4 (transitive)"
+    }
+  },
+  "externalValidators": {
+    "veraPDF": {
+      "version": "1.30.2",
+      "flavour": "3b",
+      "result": "compliant",
+      "passedRules": 146,
+      "failedRules": 0,
+      "passedChecks": 393,
+      "failedChecks": 0
+    },
+    "mustang": {
+      "version": "2.9.0",
+      "result": "valid",
+      "pdfStatus": "valid",
+      "xmlStatus": "valid",
+      "notes": "5 non-blocking notices from the XRechnung rule set (BR-DE-2, BR-DE-15, BR-DE-21, PEPPOL-EN16931-R010/R020); expected for a Factur-X BASIC document."
+    },
+    "java": "OpenJDK 17.0.16"
+  },
+  "files": {
+    "canonical-invoice.json": "b2170d439f0f5bce36a2527fc945db09c4175aa270aebbd0054ee3ae157b7f47",
+    "carrier.pdf": "17e3c640c2b2e4648259e4d2724a8c43ca6424a0947609efd980d38f20aaf998",
+    "invoice-facturx-basic.xml": "ab562d905bbcb18de16c0c9a2e98d1fb431ee3e5d9790df6901fdded0a16e77a",
+    "invoice-facturx-basic.pdf": "16339a62589ff4fc3a5fb1c14981582ec5c31c51eebec9e16972ffe314c14dca",
+    "invoice-facturx-basic-extracted.xml": "ab562d905bbcb18de16c0c9a2e98d1fb431ee3e5d9790df6901fdded0a16e77a",
+    "verapdf-validation.xml": "52bb40d3b00eddc57eb3f31cfef64d7e589e9acbda634767bfbf78110a23dbd6",
+    "mustang-validation.xml": "4e46f5223acb07a761d8aec5babf30828c86b13b854b9c2e750980f58c08a9b8"
+  },
+  "checksumAlgorithm": "sha256"
+}
