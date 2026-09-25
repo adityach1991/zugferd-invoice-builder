@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Balsoft.Hive.EInvoice;
 using Balsoft.Hive.EInvoice.Cii;
 using Balsoft.Hive.EInvoice.Pdf;
@@ -8,6 +9,12 @@ const string Engine = "Balsoft.Hive.EInvoice";
 const string EngineVersion = "1.0.0";
 
 var builder = WebApplication.CreateBuilder(args);
+// The TypeScript contract treats absent fields as optional; omit nulls
+// instead of emitting them explicitly.
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+});
 var app = builder.Build();
 
 static List<ValidationIssueDto> MapIssues(ValidationResult result) =>
